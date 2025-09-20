@@ -36,6 +36,15 @@ public class Main {
         }
     }
 
+    public static void printAnswer(float[][] s1) {
+        for (float[] elems : s1) {
+            for (float elem : elems) {
+                System.out.printf("%.4f\t", elem);
+            }
+            System.out.println();
+        }
+    }
+
     public static void main(String[] args) {
         int[] s;
         int r = 0;
@@ -44,32 +53,34 @@ public class Main {
         s = new int[7];
         x = new float[10];
         s1 = new float[s.length][x.length];
+
         for (int i = 18; i >= 6; i -= 2) {
             s[r++] = i;
         }
+
         int mn = -15, mx = 4;
         for (int i = 0; i < x.length; i++) {
-            x[i] = (float) (int) (Math.random() * (mx - mn) + mn);
+            x[i] = (float) (Math.random() * (mx - mn) + mn);
         }
+
         for (int i = 0; i < s1.length; i++) {
             for (int j = 0; j < s1[i].length; j++) {
                 s1[i][j] = calc(s[i], x[j]);
             }
         }
+
         System.out.println("First array:");
         for (int elem : s) {
             System.out.print(elem + " ");
         }
+
         System.out.println("\n\nSecond array:");
         for (float elem : x) {
             System.out.print(elem + " ");
         }
+
         System.out.println("\n\nMatrix:");
-        for (float[] elems : s1) {
-            for (float elem : elems) {
-                System.out.printf("%.4f ", elem);
-            }
-            System.out.println();
-        }
+
+        printAnswer(s1);
     }
 }

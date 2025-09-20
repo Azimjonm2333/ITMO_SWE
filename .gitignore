@@ -36,3 +36,5 @@ bin/
 *.swo
 *.bak
 *.tmp
+
+report.docx
